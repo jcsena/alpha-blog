@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  has_many :articles
+  before_save {self.email = email.downcase}
   VALID_EMAIL_REGEX = /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/i
 
   validates :username, presence: true,
