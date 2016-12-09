@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all;
+    @users = User.paginate(page: params[:page], per_page: 4);
   end
 
   def edit
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @user_articles = @user.articles.paginate(page: params[:page], per_page: 4);
   end
 
   def update

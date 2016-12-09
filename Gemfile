@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # bcrypt para use has_secure_password method
 gem 'bcrypt', '~> 3.1.7'
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '3.1.0'
+#This gem integrates the Twitter Bootstrap pagination component with the will_paginate pagination gem. Supports Rails and Sinatra.
+gem 'will_paginate-bootstrap', '1.0.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
