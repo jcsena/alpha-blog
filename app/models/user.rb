@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :articles
+  has_many :articles, dependent: :destroy
   before_save {self.email = email.downcase}
   VALID_EMAIL_REGEX = /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/i
 

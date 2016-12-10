@@ -1,5 +1,5 @@
 <div class="article-actions">
-  <% if logged_in? && current_user == model.user %>
+  <% if logged_in? && (current_user == model.user || current_user.admin? ) %>
       <%= link_to "Edit this #{model.class.name.downcase}", method("edit_#{model.class.name.downcase}_path").call(model), class: "btn btn-xs btn-primary" %>
       <%= link_to "Delete this #{model.class.name.downcase}", method("article_path").call(model), method: :delete, data: {confirm: "Are you sure want to delete the #{model.class.name.downcase}?"}, class: "btn btn-xs btn-danger" %>
   <% end %>
