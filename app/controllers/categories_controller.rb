@@ -1,9 +1,8 @@
 class CategoriesController < ApplicationController
 
-  before_action :set_category , only: [:edit, :update, :show, :destroy]
-
+  before_action :set_category , only: [:show]
   def index
-    @categories = Category.all
+    @categories = Category.paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -18,8 +17,8 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:success] = "You create the new category"
-      redirect_to category_path(@category)
+      flash[:success] = 'You create the new category'
+      redirect_to categories_path
     else
       render :new
     end
@@ -31,7 +30,7 @@ class CategoriesController < ApplicationController
   end
 
   def set_category
-    @category = Category.find(:id)
+    @category = Category.find(params[:id])
   end
 
 end
