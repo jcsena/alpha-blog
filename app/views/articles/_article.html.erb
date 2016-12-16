@@ -20,6 +20,9 @@
 
           </div>
 
+          <%if article.categories.any?%>
+            <p>Categories: <%=render article.categories %></p>
+          <%end%>
 
           <%=	render 'articles/actions', {model: article, index:true} %>
 
